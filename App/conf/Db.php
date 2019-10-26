@@ -5,7 +5,7 @@ class DB
 	const USER = "root";
 	const PASS = '';
 	const HOST = "localhost";
-	const DB   = "comments";
+	const DB   = "tasks";
 
 	public static function connToDB() {
 

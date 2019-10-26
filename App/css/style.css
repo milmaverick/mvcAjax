@@ -1,15 +1,14 @@
 body {
 	background-color: #cccccc;
+	color: #000;
 }
-
+input{
+	margin-top: 5px;
+}
 img{
 	margin: 0 auto;
 	width: 60px;
 	height: 60px;
-}
-
-input {
-	margin-top: 10px;
 }
 
 textarea {
@@ -28,6 +27,11 @@ textarea {
 	display: block;
 	min-height: 500px;
 }
+
+#content{
+	padding-top: 100px;
+}
+
 .selector{
 	margin: 20px auto;
 }
@@ -36,8 +40,27 @@ textarea {
 	display: block;
 	height: 80px;
 	margin-top: 15px;
+	padding: 0 10px;
 	border-radius: 5px;
 	background-color: #e9ecef;
+}
+.task_inner{
+	display: flex;
+	justify-content: space-between;
+}
+
+.head__tasks{
+	display: flex;
+	justify-content:flex-start;
+	line-height: 1.6;
+}
+
+.head__tasks>div{
+	margin-right: 20px;
+}
+
+.options>span{
+	margin: 0 10px;
 }
 
 #pagination {
@@ -47,27 +70,33 @@ textarea {
 	margin: 10px auto;
 }
 
-.res a{
+ .res{
 	display: block;
 	float: right;
-	margin: 5px;
-	font-weight: bold;
+}
+
+.isChanged {
+	font-weight: 400;
+	text-transform: uppercase;
+	color:#082567;
+	margin-right: 10px;
 }
 .resChange a{
-	color:#ffb41f;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.res .isPass{
+	text-align: center;
+	margin: 0
 }
 
 .resDel a{
 	color:red;
 }
 
-.resReturn a{
-	color:#34c924;
-}
-
-.isChanged{
-	 font-weight: bold;
-	 color: blue;
+.resReturn {
+	text-transform: uppercase;
+	color:#00a550;
 }
 
 .mr-3{
@@ -79,9 +108,11 @@ textarea {
 
 #logOut{
 	display: none;
+
 }
 .comment.deleteElement{
-		background-color: #8b0000;
+
+		background-color: #77dd77;
 }
 .displayNone{
 	display: none;

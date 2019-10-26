@@ -41,7 +41,7 @@ class AdminController extends Controller
     return $this->model->isLog();
   }
 
-  function logOut(){
+  public function logOut(){
     if($this->isLog())
     {
       unset($_SESSION['logged_user']);
@@ -51,6 +51,8 @@ class AdminController extends Controller
       echo "Нету акка1";
     }
   }
+
+  
 
 
 

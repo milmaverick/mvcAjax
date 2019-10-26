@@ -4,42 +4,52 @@ if (isset($pageData)){
 
     foreach ($pageData as $comment) {
       ?>
-      <div class='comment <?if ($comment['isPass']==0) echo "deleteElement";?>'  id="comment<?=$comment['id']?>">
+      <div class='comment <?if ($comment['isPass']==1) echo "deleteElement";?>'  id="comment<?=$comment['id']?>">
         <div class="media">
-          <img src='img/<?=$comment['img']?>' class="mr-3" alt='<?=$comment['name']?>'>
           <div class="media-body">
-            ИМЯ: <?=$comment['name']?>  |  email: <?=$comment['email']?>
-            <span class='res isChanged <?if ($comment['isChanged']==0) echo "displayNone";?>'> Изменен Админом</span>
+            <div class="task_inner">
+              <div class="head__tasks">
+                <div class="name" id="name<?=$comment['id']?>">ИМЯ: <?=$comment['name']?></div>
+                <div class="email" id="email<?=$comment['id']?>">EMAIL: <?=$comment['email']?></div>
+              </div>
+              <div class="options">
+                <span class='res isChanged <?if ($comment['isChanged']==0) echo "displayNone";?>'> Изменен Админом</span>
+                <span class='res isPass'>
+                  <input class="checkBox" id="check<?=$comment['id']?>" type="checkbox" name="check" value="0" <? if($comment['isPass']==1) echo "checked"; ?>>
+                  <label for="check<?=$comment['id']?>"></label>
+                </span>
+                <span class='res resChange'  data-toggle="modal" data-target="#exampleModal" id='change<?=$comment['id']?>'>
+                  <a href='#' onclick='changeElement(<?=$comment['id']?>)'> Изменить</a>
+                </span>
+              </div>
+            </div>
 
-            <span class='res resChange'  data-toggle="modal" data-target="#exampleModal" id='change<?=$comment['id']?>'>
-              <a href='#' onclick='changeElement(<?=$comment['id']?>)'> Изменить</a>
-            </span>
 
-            <span class='res resDel <?if ($comment['isPass']==0) echo "displayNone";?>'  id='delete<?=$comment['id']?>'>
-              <a href='#' onclick='deleteElement(<?=$comment['id']?>)'> Отклонить</a>
-            </span>
+            <div class="text"  id="text<?=$comment['id']?>">TEXT: <?=$comment['text']?></div>
 
-            <span class='res resReturn <?if($comment['isPass']==1) echo "displayNone";?>'  id='return<?=$comment['id']?>'>
-              <a href='#' onclick='accessElement(<?=$comment['id']?>)'> Пропустить</a>
-            </span>
-
-            <br> TEXT: <?=$comment['text']?>
+            <br>
           </div>
         </div>
       </div>
     <?	}
   }
-  else
-  foreach ($pageData as $comment) {
-    ?>
-    <div class="comment">
-      <div class="media">
-        <div class="media-body">
-          ИМЯ: <?=$comment['name']?>  |  email: <?=$comment['email']?>
-          <br> TEXT:<?=$comment['text']?>
+  else{
+    foreach ($pageData as $comment) {
+      ?>
+      <div class="comment">
+        <div class="media">
+          <div class="media-body">
+            ИМЯ: <?=$comment['name']?>  |  email: <?=$comment['email']?>
+            <div class="options">
+              <span class='res isChanged <?if ($comment['isChanged']==0) echo "displayNone";?>'> Изменен Админом</span>
+              <span class='res resReturn <?if ($comment['isPass']==0) echo "displayNone";?>' > Выполнено</span>
+            </div>
+            <br> TEXT: <?=$comment['text']?>
+
+          </div>
         </div>
       </div>
-    </div>
-  <?	}
+    <?	}
+  }
 }
 ?>
